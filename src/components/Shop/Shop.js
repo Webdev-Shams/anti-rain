@@ -7,6 +7,7 @@ import './Shop.css'
 const Shop = () => {
     const [products, setProducts] = useState([]);   
     const [cart, setCart] = useState([]);
+    const [choose, setChoose] = useState([]);
 
     useEffect(() =>{
         fetch('products.json')
@@ -14,10 +15,26 @@ const Shop = () => {
         .then(data => setProducts(data))
     }, [])
 
+    
     const handleAddToCart = (product) => {
-        console.log(product);
         const newCart = [...cart, product];
         setCart(newCart);
+    }
+
+
+    // const chooseRandom = (selected) =>{
+    //     const cartRoom = selected.map(item => ({item}))[Math.floor(Math.random()*selected.map(item => ({item})).length)];
+
+    //     const randomItem = [...choose, cartRoom];
+
+
+    //     // const randomItem = [...random, cartRoom[Math.floor(Math.random()*cartRoom.length)]];
+    //     setChoose(randomItem);
+    // }
+    const chooseRandom = ()=>{
+        const cartRoom = cart[Math.floor(Math.random()*cart.length)];
+        const randomItem = [...choose, cartRoom];
+        setChoose(randomItem);
     }
 
     return (
@@ -27,13 +44,29 @@ const Shop = () => {
                       products.map(product => <Product 
                       key={product.id}
                       product={product}
+                      name={product.name}
                       handleAddToCart={handleAddToCart}
                       ></Product>) 
                 }
             </div>
             <div className="cartContainer">
-                <h4>This is Cart section</h4>
-                <p>{cart.length}</p>
+                <div>
+                    <h4>Random Selected Item</h4> 
+                    <p>{choose}</p>
+                    {/* <button onClick={()=> {chooseRandom(cart)}}>
+                        <p>Choose Random</p>
+                    </button>    */}
+                    <button onClick={chooseRandom}> 
+                        <p>Choose Random</p>
+                    </button>   
+                </div>
+
+                <div>
+                    <h4>Selected Items</h4>
+                    <div className='selectedItems'>{cart.map(item => (
+                    <p>{item}</p>
+                    ))}</div>
+                </div>
             </div>
             
         </div>
