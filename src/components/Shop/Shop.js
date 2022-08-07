@@ -21,20 +21,14 @@ const Shop = () => {
         setCart(newCart);
     }
 
-
-    // const chooseRandom = (selected) =>{
-    //     const cartRoom = selected.map(item => ({item}))[Math.floor(Math.random()*selected.map(item => ({item})).length)];
-
-    //     const randomItem = [...choose, cartRoom];
-
-
-    //     // const randomItem = [...random, cartRoom[Math.floor(Math.random()*cartRoom.length)]];
-    //     setChoose(randomItem);
-    // }
     const chooseRandom = ()=>{
         const cartRoom = cart[Math.floor(Math.random()*cart.length)];
         const randomItem = [...choose, cartRoom];
         setChoose(randomItem);
+    }
+
+    const resetAll = ()=>{
+        setChoose([]);
     }
 
     return (
@@ -51,19 +45,25 @@ const Shop = () => {
             </div>
             <div className="cartContainer">
                 <div>
-                    <h4>Random Selected Item</h4> 
-                    <p>{choose}</p>
-                    {/* <button onClick={()=> {chooseRandom(cart)}}>
-                        <p>Choose Random</p>
-                    </button>    */}
+                    <h4>Random Selected Item</h4>
+                    <div>
+                    {choose.map((item)=> (
+                        <p>{item}</p>
+                    ))}
+                    </div>
+
                     <button onClick={chooseRandom}> 
                         <p>Choose Random</p>
                     </button>   
+                    <button onClick={resetAll}>
+                        <p>Reset</p>
+                    </button>
                 </div>
+                
 
                 <div>
                     <h4>Selected Items</h4>
-                    <div className='selectedItems'>{cart.map(item => (
+                    <div className='selectedItems'>{cart.map((item) => (
                     <p>{item}</p>
                     ))}</div>
                 </div>
