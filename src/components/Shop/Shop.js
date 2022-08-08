@@ -28,6 +28,7 @@ const Shop = () => {
     }
 
     const resetAll = ()=>{
+        setCart([]);
         setChoose([]);
     }
 
@@ -44,7 +45,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cartContainer">
-                <div>
+                <div className='randomItemsCont'>
                     <h4>Random Selected Item</h4>
                     <div>
                     {choose.map((item)=> (
@@ -52,20 +53,24 @@ const Shop = () => {
                     ))}
                     </div>
 
-                    <button onClick={chooseRandom}> 
+                    <button className='randomBtn' onClick={chooseRandom}> 
                         <p>Choose Random</p>
                     </button>   
-                    <button onClick={resetAll}>
-                        <p>Reset</p>
-                    </button>
+                    
                 </div>
                 
 
-                <div>
+                <div className='selectedItemsCont'>
                     <h4>Selected Items</h4>
                     <div className='selectedItems'>{cart.map((item) => (
                     <p>{item}</p>
                     ))}</div>
+                </div>
+
+                <div >
+                <button className='resetBtn' onClick={resetAll}>
+                        <p>Reset All</p>
+                </button>
                 </div>
             </div>
             

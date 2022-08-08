@@ -14,8 +14,40 @@
     background-color: coral;
 }
 
+.cartContainer h4{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.selectedItemsCont, .randomItemsCont{
+    margin-top: 40px;
+}
+
 .selectedItems{
+    margin-top: 0;
+}
+
+.randomBtn{
+    background-color: blueviolet;
+    font-size: 14px;
+    font-weight: 700;
+    color: blanchedalmond;
+    border: none;
+    border-radius: 5%;
     display: inline-block;
+    padding: 3px 9px;
+    margin-bottom: 15px;
+}
+
+.resetBtn{
+    font-size: 16px;
+    font-weight: 700;
+    color: blanchedalmond;
+    background-color: rgb(236, 20, 20);
+    border: none;
+    border-radius: 5%;
+    display: inline-block;
+    padding: 3px 40px;
 }
 
 
