@@ -52,3 +52,24 @@
 .cartIcon{
     margin-left: 8px;
 }
+
+@media screen and (max-width:780px) {
+    .product{
+        width: 200px;
+        height: 400px;
+    }
+    .product img{
+        width: 186px;
+        border-radius: 8px;
+        margin: 7px 7px;
+    }
+    .productName{
+        font-size: 17px;
+    }
+    .productPrice{
+        font-size: 16px;
+    }
+    .btnCart{
+        font-size: 13px;
+    }
+}
