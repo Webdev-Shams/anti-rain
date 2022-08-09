@@ -60,4 +60,17 @@
     .productsContainer{
         grid-template-columns: repeat(1, 1fr);
     }
+    
+    .cartContainer h4{
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .randomBtn{
+        font-size: 12px;
+    }
+
+    .resetBtn{
+        font-size: 12px;
+    }
 }
